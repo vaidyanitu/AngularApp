@@ -1,0 +1,7 @@
+/* You can add global styles to this file, and also import other style files */
+.disp{
+	background-color: gray;
+	font-size: 50px;
+	color:white;
+}
+@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');

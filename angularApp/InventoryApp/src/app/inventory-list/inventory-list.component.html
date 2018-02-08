@@ -1,0 +1,9 @@
+<h1>
+ {{title}}
+</h1>
+<p>{{todayDate}}</p>
+<div *ngFor="let item of Inventory">
+	{{item.ProductId}}
+	{{item.ProdName}}
+	{{item.Price}}
+</div>

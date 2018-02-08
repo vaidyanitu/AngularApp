@@ -1,0 +1,13 @@
+<Form [FormGroup]="AddProduct" novalidate>
+<div class="form-group">
+ <label class="center-block">Product:
+      <input class="form-control" formControlName="ProductName">
+    </label><br/>
+    <label class="center-block">Name:
+      <input class="form-control" formControlName="ProdPrice">
+    </label>
+</div>
+</Form>
+
+
+<p>product= {{AddProduct.ProductName}}</p>
