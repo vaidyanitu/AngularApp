@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="../Scripts/jquery-1.10.2.min.js"></script>
+</head>
+<body>
+   
+
+        <h2>Product</h2>
+    <table id="prod" border="1">
+        <tr>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Date Added</th>
+        </tr>
+    </table>   
+
+        <script>
+            $(document).ready(function () {
+                $.getJSON("/api/product")
+                    .done(function (result) {
+                        $.each(result, function (key, value) {
+                            var a = '<tr>' + '<td>' + value.ProdName + '</td>' + '<td>' +value.Price + '</td>' + '<td>' + value.DateAdded + '</td>' + '</tr>';
+                            $('#prod').append(a);
+                        })
+                    })
+            })
+        </script>
+
+
+
+
+</body>
+</html>
