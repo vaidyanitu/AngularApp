@@ -1,13 +1,20 @@
-<Form [FormGroup]="AddProduct" novalidate>
-<div class="form-group">
- <label class="center-block">Product:
-      <input class="form-control" formControlName="ProductName">
-    </label><br/>
-    <label class="center-block">Name:
-      <input class="form-control" formControlName="ProdPrice">
-    </label>
-</div>
-</Form>
-
-
-<p>product= {{AddProduct.ProductName}}</p>
+<h2 class="disp">Product Detail</h2>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<form [formGroup]="AddProduct" novalidate (ngSubmit)="onSubmit(AddProduct.value)">
+	<br/><br/>
+  <div class="form-group col-md-2">
+    <label class="center-block" style="text-align: right;">Product:</label><br/>
+    <label class="center-block" style="text-align: right;">Price:</label><br/>
+  </div>
+  <div class="col-md-6">
+  	<input class="form-control" formControlName="ProdName" [(ngModel)]="prod"><br/>
+  	 <input class="form-control" formControlName="Price"><br/>     
+     <button type="submit" class="btn btn-success">
+    <i class="fa fa-floppy-o"></i> Submit
+</button>
+  </div>
+  <div class="col-md-4"></div>
+</form>
+<!--<p>Form value: {{ AddProduct.value | json }}</p>
+<p>Form status: {{ AddProduct.status | json }}</p>
+<p>{{prod}}</p>-->

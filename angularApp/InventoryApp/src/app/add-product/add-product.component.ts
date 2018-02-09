@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { InventoryService } from '../Shared/inventory.service';
 
 @Component({
   selector: 'add-product',
@@ -9,13 +10,19 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class AddProductComponent implements OnInit {
 
 AddProduct=new FormGroup({
-	ProductName:new FormControl(),
-	ProdPrice:new FormControl()
+	ProdName:new FormControl(),
+	Price:new FormControl()
 })
 
-  constructor() { }
+  constructor(private _inventoryService:InventoryService) { }
 
   ngOnInit() {
   }
+
+onSubmit(data){
+this._inventoryService.addInventory1(data);
+this.ProdName="";
+this.Price="";
+}
 
 }

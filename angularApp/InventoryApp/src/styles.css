@@ -3,5 +3,17 @@
 	background-color: gray;
 	font-size: 50px;
 	color:white;
+	padding-bottom: 5px;
+	text-align: center;
 }
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+
+table{
+	border:1px;
+	margin-left: 80px;
+}
+
 @import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');

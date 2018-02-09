@@ -35,6 +35,21 @@ this.http.post(this.url, {
       );
 }
 
+addInventory1(product :Product) :void{
+this.http.post(this.url, {
+      ProdName:product.ProdName,
+      Price:product.Price
+    })
+      .subscribe(
+        res => {
+          console.log(res);
+        },
+        err => {
+          console.log("Error occured");
+        }
+      );
+}
+
 
 putInventory():void{
 	this.http.put(this.url+'/1002',{
@@ -55,6 +70,12 @@ deleteInventory():void{
 	this.http.delete(this.url+'/1002').subscribe(res=> {console.log(res);},
 		err => {console.log("Error occured::" + err);});
 }
+
+deleteInventory1(productId:number):void{
+  this.http.delete(this.url+'/'+productId).subscribe(res=> {console.log(res);},
+    err => {console.log("Error occured::" + err);});
+}
+
 
  private handleError(error: Response) {
          return Observable.throw(error.statusText);

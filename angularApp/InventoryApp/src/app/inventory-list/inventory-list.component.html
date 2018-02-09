@@ -1,9 +1,19 @@
-<h1>
- {{title}}
-</h1>
-<p>{{todayDate}}</p>
-<div *ngFor="let item of Inventory">
-	{{item.ProductId}}
-	{{item.ProdName}}
-	{{item.Price}}
-</div>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<h2 class="disp">
+ Inventories Available
+</h2>
+
+<table border="1px" >
+	<tr>
+		<th>Product</th>
+		<th>Price</th>
+		<th>Date Added </th>
+		<th></th>
+	</tr>
+	<tr *ngFor="let item of Inventory">
+		<td>{{item.ProdName}}</td>
+		<td>{{item.Price}}</td>
+		<td>{{item.DateAdded| date: 'dd/MM/yyyy'}}</td>
+		<td><button (click)="deleteProduct1(item.ProductID)"><i class="fa fa-minus-square" aria-hidden="true"></i></button></td>
+	</tr>
+</table>

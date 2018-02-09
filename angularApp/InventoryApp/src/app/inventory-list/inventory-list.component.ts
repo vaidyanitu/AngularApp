@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { InventoryService } from '../Shared/inventory.service';
 import { Product } from '../product.model';
 
-
 @Component({
   selector: 'inventory-list',
   templateUrl: './inventory-list.component.html',
@@ -40,5 +39,14 @@ deleteProduct():void{
  // this.putProduct();
   //this.deleteProduct();
   }
+
+deleteProduct1(ProductId:number):void{
+  this._inventoryService.deleteInventory1(ProductId).subscribe(
+  this._inventoryService.getInventory().subscribe(
+    resultArray => this.Inventory = resultArray,
+    error => console.log("Error::"+ error)
+    )
+  );
+}
 
 }
