@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { InventoryService } from '../Shared/inventory.service';
+import { Router} from '@angular/router';
+
 
 @Component({
   selector: 'add-product',
@@ -14,15 +16,23 @@ AddProduct=new FormGroup({
 	Price:new FormControl()
 })
 
-  constructor(private _inventoryService:InventoryService) { }
+  constructor(private _inventoryService:InventoryService,private router: Router) { 
+this.router= router;
+  }
 
   ngOnInit() {
   }
 
 onSubmit(data){
 this._inventoryService.addInventory1(data);
-this.ProdName="";
-this.Price="";
-}
+this.router.navigate(['inventory']);
+)
 
 }
+
+
+}
+
+
+
+

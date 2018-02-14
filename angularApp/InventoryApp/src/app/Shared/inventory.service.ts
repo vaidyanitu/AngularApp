@@ -24,15 +24,11 @@ this.http.post(this.url, {
       ProductId: 5,
       ProdName: 'Soap',
       Price: 20
-    })
-      .subscribe(
-        res => {
-          console.log(res);
-        },
-        err => {
-          console.log("Error occured");
-        }
-      );
+    }).subscribe(
+      res=>{
+        return res;
+      }
+    );
 }
 
 addInventory1(product :Product) :void{
@@ -40,14 +36,7 @@ this.http.post(this.url, {
       ProdName:product.ProdName,
       Price:product.Price
     })
-      .subscribe(
-        res => {
-          console.log(res);
-        },
-        err => {
-          console.log("Error occured");
-        }
-      );
+      .toPromise().then();
 }
 
 
@@ -71,9 +60,13 @@ deleteInventory():void{
 		err => {console.log("Error occured::" + err);});
 }
 
-deleteInventory1(productId:number):void{
-  this.http.delete(this.url+'/'+productId).subscribe(res=> {console.log(res);},
-    err => {console.log("Error occured::" + err);});
+deleteInventory1(productId:number):Promise<any>{
+  //this.http.delete(this.url+'/'+productId);
+  return this.http.delete(this.url+'/'+productId).toPromise().then(
+    //() => {
+      //this.getInventory();
+    //}
+)
 }
 
 

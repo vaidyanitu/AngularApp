@@ -1,9 +1,13 @@
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <h2 class="disp">
  Inventories Available
 </h2>
 
-<table border="1px" >
+<div style="margin-top: 80px; margin-left: 20px; ">
+<button class="btn btn-primary" style="margin-left: 80px;" (click)="LoadAdd()" >Add Inventory</button><br/><br/>
+<div style="overflow: auto; max-height:400px; width:500px;">
+<table border="1px">
 	<tr>
 		<th>Product</th>
 		<th>Price</th>
@@ -14,6 +18,9 @@
 		<td>{{item.ProdName}}</td>
 		<td>{{item.Price}}</td>
 		<td>{{item.DateAdded| date: 'dd/MM/yyyy'}}</td>
-		<td><button (click)="deleteProduct1(item.ProductID)"><i class="fa fa-minus-square" aria-hidden="true"></i></button></td>
+		<td><button  (click)="deleteProduct1(item.ProductID)"><i class="fa fa-minus-square"></i></button></td>
 	</tr>
 </table>
+</div>
+
+</div>
