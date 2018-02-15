@@ -18,9 +18,11 @@
 		<td>{{item.ProdName}}</td>
 		<td>{{item.Price}}</td>
 		<td>{{item.DateAdded| date: 'dd/MM/yyyy'}}</td>
-		<td><button  (click)="deleteProduct1(item.ProductID)"><i class="fa fa-minus-square"></i></button></td>
+		<td><button  (click)="editProduct(item.ProductID)" value="test"><i class="fa fa-edit"></i></button><button  (click)="deleteProduct(item.ProductID)"><i class="fa fa-minus-square"></i></button></td>
 	</tr>
 </table>
+
 </div>
+<ngb-pagination [collectionSize]="50" [(page)]="page" aria-label="Default pagination"></ngb-pagination>
 
 </div>

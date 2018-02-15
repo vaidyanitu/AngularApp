@@ -24,10 +24,8 @@ this.router= router;
   }
 
 onSubmit(data){
-this._inventoryService.addInventory1(data);
+this._inventoryService.addInventory(data);
 this.router.navigate(['inventory']);
-)
-
 }
 
 

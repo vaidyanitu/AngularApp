@@ -19,19 +19,7 @@ getInventory(): Observable<Product[]>{
 	}).catch(this.handleError);
 }
 
-addInventory() :void{
-this.http.post(this.url, {
-      ProductId: 5,
-      ProdName: 'Soap',
-      Price: 20
-    }).subscribe(
-      res=>{
-        return res;
-      }
-    );
-}
-
-addInventory1(product :Product) :void{
+addInventory(product :Product) :void{
 this.http.post(this.url, {
       ProdName:product.ProdName,
       Price:product.Price
@@ -39,28 +27,7 @@ this.http.post(this.url, {
       .toPromise().then();
 }
 
-
-putInventory():void{
-	this.http.put(this.url+'/1002',{
-		 ProductId: 1002,
-      ProdName: 'Soap',
-      Price: 25
-	}).subscribe(
-        res => {
-          console.log(res);
-        },
-        err => {
-          console.log("Error occured");
-        }
-      );
-}
-
-deleteInventory():void{
-	this.http.delete(this.url+'/1002').subscribe(res=> {console.log(res);},
-		err => {console.log("Error occured::" + err);});
-}
-
-deleteInventory1(productId:number):Promise<any>{
+deleteInventory(productId:number):Promise<any>{
   //this.http.delete(this.url+'/'+productId);
   return this.http.delete(this.url+'/'+productId).toPromise().then(
     //() => {
@@ -69,6 +36,20 @@ deleteInventory1(productId:number):Promise<any>{
 )
 }
 
+editInventory(prod:Product, prodId:number):void{
+  return this.http.put(this.url+'/'+prodId,{
+  ProdName:prod.ProdName,
+      Price:prod.Price,
+      ProductID:prod.ProductID
+  })
+}
+
+
+getEditInventory(productId:number):Observable<Product>{
+  return this.http.get(this.url+'/'+productId).map((response:Response)=> {
+  return <Product> response.json();
+  }).catch(this.handleError);
+}
 
  private handleError(error: Response) {
          return Observable.throw(error.statusText);

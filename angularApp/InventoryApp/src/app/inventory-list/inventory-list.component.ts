@@ -17,7 +17,7 @@ export class InventoryListComponent implements OnInit {
 
 Inventory:Product[];
 private url="http://localhost:58365/api/product";
-
+public prodId:number=1;
 
 constructor(private _inventoryService:InventoryService,
  private http:Http, private router: Router) { 
@@ -32,18 +32,6 @@ getProducts():void{
 		)
 }
 
-addProduct() : void{
-this._inventoryService.addInventory();
-}
-
-putProduct():void{
-  this._inventoryService.putInventory();
-}
-
-deleteProduct():void{
-  this._inventoryService.deleteInventory();
-}
-
   ngOnInit():void {
   this.getProducts();
   console.log(this.Inventory);
@@ -51,9 +39,9 @@ deleteProduct():void{
   //this.deleteProduct();
   }
 
-deleteProduct1(ProductId:number){
+deleteProduct(ProductId:number){
   if (confirm("Are you sure to delete?")){
-    this._inventoryService.deleteInventory1(ProductId).then(
+    this._inventoryService.deleteInventory(ProductId).then(
       ()=>{
         this.getProducts();
       }
@@ -66,7 +54,9 @@ LoadAdd(){
   this.router.navigate(['/add']);
 }
 
-
+editProduct(ProductID:number){
+  this.router.navigate(['/edit',ProductID]);
+}
 
 
 }

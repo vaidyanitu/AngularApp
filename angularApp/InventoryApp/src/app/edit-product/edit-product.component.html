@@ -1,0 +1,26 @@
+<h1 class="disp">
+  Edit
+</h1>
+
+
+<div style="margin-top: 80px; margin-left: 20px; ">
+<form [formGroup]="EditProduct" novalidate (ngSubmit)="onSubmit(EditProduct.value)">
+	<br/><br/>
+  <div class="form-group col-md-2">
+  	<label class="center-block" style="text-align: right;" type="hidden"></label><br/>
+    <label class="center-block" style="text-align: right;">Product:</label><br/>
+    <label class="center-block" style="text-align: right;">Price:</label><br/>
+  </div>
+  <div class="col-md-6">
+  	<input class="form-control" formControlName="ProductID" name="ProductID" [(ngModel)]="Inventory.ProductID" value={{Inventory.ProductID}}  type="hidden"><br/>
+  	<input class="form-control" formControlName="ProdName" name="ProdName" [(ngModel)]="Inventory.ProdName" value={{Inventory.ProdName}} ><br/>
+  	 <input class="form-control" formControlName="Price" name="Price" [(ngModel)]="Inventory.Price" value={{Inventory.Price}} ><br/>     
+     <button type="submit" class="btn btn-success">
+    <i class="fa fa-floppy-o"></i> Update
+</button>
+  </div>
+  <div class="col-md-4"></div>
+</form>
+
+
+</div>
