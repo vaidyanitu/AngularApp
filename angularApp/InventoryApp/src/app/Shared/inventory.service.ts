@@ -20,15 +20,14 @@ getInventory(): Observable<Product[]>{
 }
 
 addInventory(product :Product) :void{
-this.http.post(this.url, {
+return this.http.post(this.url, {
       ProdName:product.ProdName,
       Price:product.Price
-    })
-      .toPromise().then();
+    });
 }
 
 deleteInventory(productId:number):Promise<any>{
-  //this.http.delete(this.url+'/'+productId);
+  //this.http.delete(this.url+'/'+ProductId);
   return this.http.delete(this.url+'/'+productId).toPromise().then(
     //() => {
       //this.getInventory();

@@ -24,8 +24,12 @@ this.router= router;
   }
 
 onSubmit(data){
-this._inventoryService.addInventory(data);
-this.router.navigate(['inventory']);
+this._inventoryService.addInventory(data).subscribe(
+res=>console.log(res),
+err=>console.log("error:",err),
+()=>this.router.navigate(['inventory']);
+);
+
 }
 
 
